@@ -280,3 +280,12 @@ referenced objects should be gone::
     <QuerySet []>
     >>> p1.article_set.all()
     <QuerySet [<Article: NASA uses Python>]>
+    
+We can also refer to a model to itself as a ManyToMany for multiple authentication eg.
+
+.. code-block:: python
+    class User(models.Model):
+        name = models.CharField(max_length=100)
+        student_or_teacher = models.BooleanField() 
+        student_teacher_have = models.ManyToManyField("User")
+
